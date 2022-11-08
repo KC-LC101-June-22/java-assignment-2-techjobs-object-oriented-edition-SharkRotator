@@ -49,6 +49,8 @@ public class Job {
     public int hashCode(){
         return Objects.hash(id);
     }
+
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
     public int getId(){
@@ -93,5 +95,39 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    @Override
+    public String toString(){
+        Character nl = '\n';
+        Integer id = this.id;
+        String jobName = this.name;
+        String employerInfo = this.employer.getValue();
+        String locationInfo = this.location.getValue();
+        String positionTypeInfo = this.positionType.getValue();
+        String coreCompetancyInfo = this.coreCompetency.getValue();
+
+        if (jobName == ""){
+            jobName = "Data not available";
+        }
+
+        if (employerInfo == ""){
+            employerInfo = "Data not available";
+        }
+        if (locationInfo == ""){
+            locationInfo = "Data not available";
+        }
+
+        if (positionTypeInfo == ""){
+            positionTypeInfo= "Data not available";
+        }
+
+        if (coreCompetancyInfo == "") {
+            coreCompetancyInfo = "Data not available";
+        }
+
+        return nl+ "ID: " + id + nl+ "Name: " + jobName + nl + "Employer: " + employerInfo + nl +
+                "Location: " + locationInfo + nl + "Position Type: " + positionTypeInfo + nl +
+                "Core Competency: " + coreCompetancyInfo + nl;
     }
 }
